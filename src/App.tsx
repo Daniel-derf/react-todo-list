@@ -25,8 +25,8 @@ function App() {
         Add a todo
       </button>
       <ul data-testid="ul-id">
-        {tasks.map((task) => (
-          <li>{task}</li>
+        {tasks.map((task, idx) => (
+          <li key={idx}>{task}</li>
         ))}
       </ul>
     </div>
