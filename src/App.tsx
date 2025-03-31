@@ -2,12 +2,11 @@ import { useState, useRef } from "react";
 import "./App.css";
 
 const useTasks = () => {
-  const [tasks, setTasks] = useState([]);
-  const newTaskInput = useRef(null);
+  const [tasks, setTasks] = useState<string[]>([]);
+  const newTaskInput = useRef<HTMLInputElement | null>(null);
 
   function addTask() {
-    const task = newTaskInput.current.value.trim();
-    if (!task) return;
+    if (!newTaskInput.current || !newTaskInput.current.value.trim()) return;
 
     setTasks([...tasks, newTaskInput.current.value]);
     newTaskInput.current.value = "";
